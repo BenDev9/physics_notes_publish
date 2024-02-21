@@ -23,5 +23,17 @@ jobs:
         run: git clone "https://BenDev9:${{secrets.PAT}}@github.com/BenDev9/a-level-obsidian-vault.git"
 
       # Runs a set of commands using the runners shell
-      - name: Run find
-        run: find .
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v4.0.2
+
+      - name: Install encryptor
+        run: npm install staticrypt
+
+      - name: Copy and remove files
+        run: |
+          cp ./a-level-obsidian-vault/Physics ./
+          rm -rf ./a-level-obsidian-vault
+
+      - name: Run ecryptor
+        run: |
+          npx staticrypt ./Physics.html -d ./
