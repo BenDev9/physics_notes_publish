@@ -36,6 +36,6 @@ jobs:
 
       - name: Run ecryptor
         run: |
+          npx staticrypt ./Physics/Phsyics.html -d ./ -p password
           ls
-          npx staticrypt ./Physics.html -d ./ -p password
           cat Physics.html
