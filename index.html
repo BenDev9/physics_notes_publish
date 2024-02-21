@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Physics vault</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .roboto-regular {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .main {
+            background-color: #2d3039;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Redirecting</h1>
+    <div id="content" class="roboto-regular main"></div>
     <script>
-        const passkey = window.location.toString().split("#")[1].split("=")[1]
-        localStorage.setItem("staticrypt_passphrase", passkey);
-        window.location.href = "/physics_encrypted/Physics/Physics.html";
+        const content = document.getElementById("content");
+        try {
+            content.innerHTML = "<h1>Loading...</h1>";
+            const passkey = window.location.toString().split("#")[1].split("=")[1];
+            localStorage.setItem("staticrypt_passphrase", passkey);
+            var root = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            root = root.substring(0, root.lastIndexOf('/'));
+            window.location.href = root + "/physics_encrypted/Physics/Physics.html";
+        }
+        catch {
+            content.innerHTML = "<h1 style='color:red;'>Oops, something went wrong...</h1>"
+        }
     </script>
 </body>
+
 </html>
