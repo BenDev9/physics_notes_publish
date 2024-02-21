@@ -31,7 +31,7 @@ jobs:
 
       - name: Copy and remove files
         run: |
-          cp ./a-level-obsidian-vault/Physics ./
+          cp ./a-level-obsidian-vault/Physics ./ -r
           rm -rf ./a-level-obsidian-vault
 
       - name: Run ecryptor
