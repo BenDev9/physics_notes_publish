@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics vault</title>
+</head>
+<body>
+    <h1>Redirecting</h1>
+    <script>
+        const passkey = window.location.toString().split("#")[1].split("=")[1]
+        localStorage.setItem("staticrypt_passphrase", passkey);
+        window.location.href = "/physics_encrypted/Physics/Physics.html";
+    </script>
+</body>
+</html>
